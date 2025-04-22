@@ -34,10 +34,11 @@ def show_percentages_on_pie():
                         'linewidth': 0.5} )
     plt.legend((sizes+[sum(other)]),title="sizes")
     plt.title("Percentage of movies and tv series released by year out of all movies and tv series")
+    # Save pie as a image
     fig.savefig("img/image-pie.png")
     plt.show()
 
-# Number of movies and TV series by country (Top 10)
+# Number of movies and TV series by country (Top 10) in Horizontal Bar
 def sort_by_country_in_hbar():
 
     # Get the clean data
@@ -48,7 +49,7 @@ def sort_by_country_in_hbar():
     x = [e for e in countries[0:10]]
     y = list(countries[0:10].index)
 
-    # Horizontal Bar
+    # Create Horizontal Bar with filtered data
     plt.barh(y,x)
     plt.ylabel("Countries")
     plt.xlabel("Number of movies and TV series")
@@ -56,25 +57,32 @@ def sort_by_country_in_hbar():
     plt.savefig("img/image-hbar.png")
     plt.show()
 
+# Number of Movies vs Number of TV Shows in bar
 def type():
+    # Get the clean data
     data = clear_the_data()
+    # Filter the data
     types = data["type"].value_counts()
     sizes = [e for e in types]
     labels = list(types.index)
+    # Create the bar with filtered data
     fig,ax = plt.subplots()
     ax.bar(labels,sizes)
     ax.set_ylabel("Sizes")
     ax.set_title("TV Show vs Movie")
+    # Save bar as a image
     fig.savefig("img/image-bar.png")
     plt.show()
 
 # Directors who added the most content (top10)
 def directors():
+    # Get the clean data
     data = clear_the_data()
+    # Filter the data 
     directors = data["director"].value_counts()
     name = list(directors.index)[0:10]
     count = [e for e in directors][0:10]
-
+    # Create dataframe with filtered data
     for_data_frame = {
         "Directors": name,
         "Number of Movies/Shows" : count
@@ -83,10 +91,11 @@ def directors():
     df.index = [e for e in range(1,11)]
     print(df)
 
+# Number of movies by duration in histogram 
 def duration_of_the_Movies():
-
+    # Get the clean data
     data = clear_the_data()
-
+    # Filter the data
     durations_for_films = [e for e in data[data["type"]=="Movie"]["duration"]]
     list_d = []
     for d in durations_for_films:
@@ -95,10 +104,12 @@ def duration_of_the_Movies():
         except:
             pass
 
+    # Create histogram with filtered data
     plt.hist(list_d)
     plt.ylabel("Number of the Movies")
     plt.xlabel("Duration of the Movies (min)")
     plt.title("Number of movies by duration")
+    # Save chart as a image
     plt.savefig("img/image-histogram.png")
     plt.show()
 
