@@ -4,7 +4,7 @@ This project analyzes and visualizes Netflix movie and TV show data using Python
 
 ## 📁 Dataset
 
-The project uses a dataset named `netflix_movies.csv`. This file taken from [Kaggle](https://www.kaggle.com/datasets/ankulsharma150/netflix-data-analysis/data)
+The project uses a dataset named `netflix_movies.csv`. This file is taken from [Kaggle](https://www.kaggle.com/datasets/ankulsharma150/netflix-data-analysis/data)
 
 ## 📊 Visualizations
 
